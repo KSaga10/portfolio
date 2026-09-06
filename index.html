@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karan — KSaga</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #14161b;
+    --bg-raised: #1b1e25;
+    --text: #eae7e0;
+    --text-dim: #8b8d94;
+    --accent: #7c5cff;
+    --accent-dim: #55437a;
+    --border: #2a2d35;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 24px 60px;
+  }
+
+  .prompt {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .prompt::before { content: "$ "; color: var(--text-dim); }
+
+  h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: clamp(32px, 6vw, 48px);
+    line-height: 1.15;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+
+  h1 .handle { color: var(--accent); }
+
+  .tagline {
+    color: var(--text-dim);
+    font-size: 17px;
+    max-width: 52ch;
+    margin-bottom: 40px;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 9px;
+    height: 1.1em;
+    background: var(--accent);
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+
+  section { margin-top: 64px; }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+  }
+
+  .section-label .idx { color: var(--accent); }
+
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .project-card {
+    display: block;
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 22px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent-dim);
+    transform: translateX(4px);
+  }
+
+  .project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .project-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text);
+  }
+
+  .project-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .project-desc {
+    color: var(--text-dim);
+    font-size: 14.5px;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .skill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 12px;
+  }
+
+  footer {
+    margin-top: 70px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+  }
+
+  footer a:hover { text-decoration: underline; }
+
+  .footer-note {
+    color: var(--text-dim);
+    font-size: 13px;
+  }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 50px 18px 40px; }
+    .project-top { flex-direction: column; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="prompt">whoami</div>
+  <h1>Karan <span class="handle">// KSaga</span></h1>
+  <p class="tagline">
+    Self-taught developer building small, practical things in Python, cybersecurity, and game dev — and writing code to understand how systems actually work, not just to ship.<span class="cursor"></span>
+  </p>
+
+  <section>
+    <div class="section-label"><span class="idx">01.</span> projects</div>
+    <div class="projects">
+
+      <a class="project-card" href="https://ksaga10.github.io/snake-arcade/" target="_blank" rel="noopener">
+        <div class="project-top">
+          <span class="project-name">snake-arcade</span>
+          <span class="project-tag">play live →</span>
+        </div>
+        <div class="project-desc">Retro arcade-style Snake built with vanilla HTML5 Canvas and JavaScript — CRT scanlines, phosphor glow, zero dependencies.</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/KSaga10/port-scanner" target="_blank" rel="noopener">
+        <div class="project-top">
+          <span class="project-name">port-scanner</span>
+          <span class="project-tag">view code →</span>
+        </div>
+        <div class="project-desc">Multi-threaded TCP port scanner built from raw sockets, exploring how network security tools work under the hood.</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/KSaga10/password-strength-checker" target="_blank" rel="noopener">
+        <div class="project-top">
+          <span class="project-name">password-strength-checker</span>
+          <span class="project-tag">view code →</span>
+        </div>
+        <div class="project-desc">CLI tool that scores password strength via entropy calculation, not a simple complexity checklist.</div>
+      </a>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label"><span class="idx">02.</span> currently learning</div>
+    <div class="skills">
+      <span class="skill">Python</span>
+      <span class="skill">Data Structures</span>
+      <span class="skill">C</span>
+      <span class="skill">Java</span>
+      <span class="skill">Computer Architecture</span>
+      <span class="skill">Cyber Security tooling</span>
+    </div>
+  </section>
+
+  <footer>
+    <a href="https://github.com/KSaga10" target="_blank" rel="noopener">github.com/KSaga10</a>
+    <span class="footer-note">Open to collaborating on beginner-friendly OSS + security labs</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
